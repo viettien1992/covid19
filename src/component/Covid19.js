@@ -15,6 +15,7 @@ import {
 import { ArgumentScale, Animation } from '@devexpress/dx-react-chart';
 import { scalePoint } from 'd3-scale';
 import { withStyles } from '@material-ui/core/styles';
+import tableCovid19 from './TableCovid19';
 const chartRootStyles = {
     chart: {
         paddingRight: '20px',
@@ -79,16 +80,14 @@ function Covid19() {
     let date = [];
     let details = [];
     if (data[1] != undefined && data[2] != undefined && data[2] != '') {
-        console.log(data[1], data[2])
         for (let i = 0; i < data[1].length; i++) {
             deathDate.push(data[1][i].Cases);
-            date.push(data[1][i].Date);
+            date.push(data[1][i].Date.split("T00:00:00Z"));
             recoveData.push(data[2][i].Cases);
         }
         for (let i = 0; i < date.length; i++) {
             details.push({ date: date[i], deathed: deathDate[i], recovered: recoveData[i] });
         }
-
     }
     let TotalDeaths = 0;
     let TotalConfirmed = 0;
@@ -161,6 +160,9 @@ function Covid19() {
                         </Chart>
                     </Paper>
                 </Grid>
+            </div>
+            <div id="test1" style={{ width: "100%", display: "flex", justifyContent: "center", marginTop: "100px" }}>
+                <tableCovid19 />
             </div>
         </div>
     )

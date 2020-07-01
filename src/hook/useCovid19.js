@@ -16,7 +16,7 @@ function useCovid19() {
                 console.log(error);
             });
         axios
-            .get("https://api.covid19api.com/total/country/united-states/status/deaths?from=2020-03-25T00:00:00Z&to=2020-04-01T00:00:00Z")
+            .get("https://api.covid19api.com/total/country/united-states/status/deaths?from=2020-03-30T00:00:00Z&to=2020-04-10T00:00:00Z")
             .then(function (response) {
                 // handle việc lấy dữ liệu thành công
                 setDie(response.data);
@@ -26,7 +26,7 @@ function useCovid19() {
                 console.log(error);
             });
         axios
-            .get("https://api.covid19api.com/total/country/united-states/status/recovered?from=2020-03-25T00:00:00Z&to=2020-04-01T00:00:00Z")
+            .get("https://api.covid19api.com/total/country/united-states/status/recovered?from=2020-03-30T00:00:00Z&to=2020-04-10T00:00:00Z")
             .then(function (response) {
                 // handle việc lấy dữ liệu thành công
                 setRecove(response.data);
